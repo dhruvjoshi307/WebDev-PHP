@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #output {
+            font-size: 18px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Listeners Demo</h1>
+
+    <!-- Display area for event information -->
+    <div id="output">
+        <p>Mouse X: <span id="mouseX">0</span></p>
+        <p>Mouse Y: <span id="mouseY">0</span></p>
+        <p>Mouse Clicks: <span id="mouseClicks">0</span></p>
+        <p>Last Key Pressed: <span id="lastKeyPressed">None</span></p>
+    </div>
+
+    <script>
+        // JavaScript code goes here
+
+        var mouseXOutput = document.getElementById("mouseX");
+        var mouseYOutput = document.getElementById("mouseY");
+        var mouseClicksOutput = document.getElementById("mouseClicks");
+        var lastKeyPressedOutput = document.getElementById("lastKeyPressed");
+
+        // Mouse move event listener
+        document.addEventListener("mousemove", function(event) {
+            mouseXOutput.textContent = event.clientX;
+            mouseYOutput.textContent = event.clientY;
+        });
+
+        var clickCount = 0;
+
+        // Mouse click event listener
+        document.addEventListener("click", function() {
+            clickCount++;
+            mouseClicksOutput.textContent = clickCount;
+        });
+
+        // Keyboard press event listener
+        document.addEventListener("keydown", function(event) {
+            lastKeyPressedOutput.textContent = event.key;
+        });
+    </script>
+</body>
+</html>

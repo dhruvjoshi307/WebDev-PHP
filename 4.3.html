@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Example</title>
+    <style>
+        /* Common styles for both elements */
+        .positioned-element {
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Relative Positioning */
+        .relative-container {
+            position: relative;
+            background-color: #3498db;
+        }
+
+        .relative-box {
+            background-color: #e74c3c;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        /* Absolute Positioning */
+        .absolute-container {
+            position: relative;
+        }
+
+        .absolute-box {
+            background-color: #2ecc71;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Z-index */
+        .z-index-box {
+            background-color: #f39c12;
+            position: absolute;
+            top: 70px;
+            left: 70px;
+            z-index: 2;
+        }
+
+        .z-index-box-behind {
+            background-color: #9b59b6;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Positioning </h1>
+
+    <!-- Relative Positioning -->
+    <div class="relative-container">
+        <div class="positioned-element relative-box">
+            Relative Box
+        </div>
+    </div>
+
+    <!-- Absolute Positioning -->
+    <div class="absolute-container">
+        <div class="positioned-element absolute-box">
+            Absolute Box
+        </div>
+        <div class="positioned-element z-index-box">
+            Z-Index Box (Higher)
+        </div>
+        <div class="positioned-element z-index-box-behind">
+            Z-Index Box (Lower)
+        </div>
+    </div>
+</body>
+</html>

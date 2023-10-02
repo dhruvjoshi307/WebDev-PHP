@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #output {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Example</h1>
+
+    <!-- Button to trigger JavaScript -->
+    <button id="clickButton">Click Me</button>
+
+    <!-- Display area for JavaScript output -->
+    <div id="output"></div>
+
+    <script>
+        // JavaScript code goes here
+
+        // Function to display an alert
+        function showAlert() {
+            alert("This is an alert!");
+        }
+
+        // Function to change content dynamically
+        function changeContent() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "JavaScript changed this content!";
+        }
+
+        // Function to demonstrate loops and conditions
+        function loopAndCondition() {
+            var outputDiv = document.getElementById("output");
+            var numbers = [1, 2, 3, 4, 5];
+            var result = "";
+
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] % 2 === 0) {
+                    result += numbers[i] + " is even.<br>";
+                } else {
+                    result += numbers[i] + " is odd.<br>";
+                }
+            }
+
+            outputDiv.innerHTML = result;
+        }
+
+        // Attach event listeners to the button
+        document.getElementById("clickButton").addEventListener("click", function() {
+            showAlert();
+            changeContent();
+            loopAndCondition();
+        });
+    </script>
+</body>
+</html>

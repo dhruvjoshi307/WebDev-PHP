@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #output {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact List</h1>
+
+    <!-- Form to add a new contact -->
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <button type="submit">Add Contact</button>
+    </form>
+
+    <!-- Display area for contact list -->
+    <div id="contactList"></div>
+
+    <script>
+        // JavaScript code goes here
+
+        // Define an object to hold contacts
+        var contacts = [];
+
+        // Function to add a contact
+        function addContact() {
+            var nameInput = document.getElementById("name");
+            var emailInput = document.getElementById("email");
+
+            var contact = {
+                name: nameInput.value,
+                email: emailInput.value
+            };
+
+            contacts.push(contact);
+
+            // Clear the input fields
+            nameInput.value = "";
+            emailInput.value = "";
+
+            displayContacts();
+        }
+
+        // Function to display contacts
+        function displayContacts() {
+            var contactListDiv = document.getElementById("contactList");
+            var contactListHTML = "<h2>Contact List</h2>";
+
+            if (contacts.length === 0) {
+                contactListHTML += "<p>No contacts yet.</p>";
+            } else {
+                contactListHTML += "<ul>";
+                for (var i = 0; i < contacts.length; i++) {
+                    contactListHTML += `<li>${contacts[i].name} - ${contacts[i].email}</li>`;
+                }
+                contactListHTML += "</ul>";
+            }
+
+            contactListDiv.innerHTML = contactListHTML;
+        }
+
+        // Attach event listener to the contact form
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            addContact();
+        });
+
+        // Initial display of contacts
+        displayContacts();
+    </script>
+</body>
+</html>
